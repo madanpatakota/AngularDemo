@@ -11,8 +11,28 @@ import { Component } from '@angular/core';
   }
 )
 
-
-
 export class AppComponent {
-  title = 'AngularDemo';
+
+
+    /*string interpolation*/
+    ProjectName = "Angular";
+    title     = "Basics App";
+
+    getCustomerName(){
+      return "Robert.Jr";
+     }
+
+
+     /*Property data bidning*/
+      customerRole = "Admin";
+      inputType = "radio";
+      
+
+
+
+
+
+
+
+
 }

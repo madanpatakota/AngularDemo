@@ -1,62 +1,54 @@
-<button type="button" class="btn btn-primary">Primary</button>
-<button type="button" class="btn btn-secondary">Secondary</button>
-<button type="button" class="btn btn-success">Success</button>
-<button type="button" class="btn btn-danger">Danger</button>
-<button type="button" class="btn btn-warning">Warning</button>
-<button type="button" class="btn btn-info">Info</button>
-<button type="button" class="btn btn-light">Light</button>
-<button type="button" class="btn btn-dark">Dark</button>
+<!-- component = .html + .ts  = (.js+features(3 classes)) + .css -->
 
-<button type="button" class="btn btn-link">Link</button>
+<!-- String interpolation:
+ If we want to show the string value in html through the typescript variable
+ then we can use the string interpolation(data binding) technique -->
 
-<div class="dropdown">
-  <button
-    class="btn btn-secondary dropdown-toggle"
-    type="button"
-    data-bs-toggle="dropdown"
-    aria-expanded="false"
-  >
-    Please select a country
-  </button>
-  <ul class="dropdown-menu" style="">
-    <li><a class="dropdown-item" href="#">India</a></li>
-    <li><a class="dropdown-item" href="#">US</a></li>
-    <li><a class="dropdown-item" href="#">UK</a></li>
-    <li><a class="dropdown-item" href="#">Srilanka</a></li>
-  </ul>
-</div>
+<form style="margin-bottom: 50em">
+  <div class="container mt-5">
+    <div class="row">
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item p-4 border-bottom border-info">
+          <!-- Syntax : {{}} -->
+          <h3 class="bullet-icon">String interpolation  </h3>
+          <div class="mt-4">{{ ProjectName }} {{ title }}</div>
+          <div class="mt-4">{{ getCustomerName() }}</div>
+        
+        </li>
 
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Email address</label>
-  <input
-    type="email"
-    class="form-control"
-    id="exampleFormControlInput1"
-    placeholder="name@example.com"
-  />
-</div>
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label"
-    >Example textarea</label
-  >
-  <textarea
-    class="form-control"
-    id="exampleFormControlTextarea1"
-    rows="3"
-  ></textarea>
-</div>
-<!-- <app-test-comp></app-test-comp>
-
-<app-test-one></app-test-one> -->
-
-<!-- ctrl+shift + f -->
-
-<!-- 
-Hello world.....
-
-<strong>Hello world..</strong>
+        <li class="list-group-item p-4 border-bottom border-info">
+          <h3 class="bullet-icon">Property Data binding</h3>
+          <!-- defination : If we assign the any value from.ts file 
+          through the property of the html then i.e. Property Data Binding. -->
+          <div class="row">
+            <div class="col-md-6">
+              <input class="form-control mt-4" type="text" value = "Admin"/>
+            </div>
+          </div>
 
 
-<br>
+          <div class="row">
+            <div class="col-md-6">
+              <input class="form-control mt-4" 
+              type="text"
+              [value] = "customerRole"/>
+            </div>
+          </div>
 
-<input type = "text"/> -->
+          <div class="row">
+            <div class="col-md-6">
+              <input 
+              class="form-check-input mt-4" 
+              [type]="inputType" />
+
+              <!-- <input class="form-check-input mt-4" 
+              type="checkbox"/> -->
+            </div>
+          </div>
+
+          <!-- syntax : [<property>] -->
+        </li>
+      </ul>
+    </div>
+  </div>
+</form>
