@@ -8,38 +8,38 @@
   <div class="container mt-5">
     <div class="row">
       <ul class="list-group list-group-flush">
+        <!-- String interpolation -->
         <li class="list-group-item p-4 border-bottom border-info">
           <!-- Syntax : {{}} -->
-          <h3 class="bullet-icon">String interpolation  </h3>
+          <h3 class="bullet-icon">String interpolation</h3>
           <div class="mt-4">{{ ProjectName }} {{ title }}</div>
           <div class="mt-4">{{ getCustomerName() }}</div>
-        
         </li>
 
+        <!--property Data binding(one way databinding)-->
         <li class="list-group-item p-4 border-bottom border-info">
           <h3 class="bullet-icon">Property Data binding</h3>
           <!-- defination : If we assign the any value from.ts file 
           through the property of the html then i.e. Property Data Binding. -->
           <div class="row">
             <div class="col-md-6">
-              <input class="form-control mt-4" type="text" value = "Admin"/>
-            </div>
-          </div>
-
-
-          <div class="row">
-            <div class="col-md-6">
-              <input class="form-control mt-4" 
-              type="text"
-              [value] = "customerRole"/>
+              <input class="form-control mt-4" type="text" value="Admin" />
             </div>
           </div>
 
           <div class="row">
             <div class="col-md-6">
-              <input 
-              class="form-check-input mt-4" 
-              [type]="inputType" />
+              <input
+                class="form-control mt-4"
+                type="text"
+                [value]="customerRole"
+              />
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <input class="form-check-input mt-4" [type]="inputType" />
 
               <!-- <input class="form-check-input mt-4" 
               type="checkbox"/> -->
@@ -47,6 +47,153 @@
           </div>
 
           <!-- syntax : [<property>] -->
+        </li>
+
+        <!-- Event Data Binding(one way data binding) -->
+        <!-- If we assign the event from.html file through the function of the typescript code
+          i.e. event databinding -->
+        <li class="list-group-item p-4 border-bottom border-info">
+          <!-- Syntax : {{}} -->
+          <h3 class="bullet-icon">Event Data binding()</h3>
+          
+          
+          <!-- keypress  -->
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <input
+                placeholder="Key press"
+                type="text"
+                class="form-control"
+                (keypress)="captureData($event)"
+              />
+            </div>
+          </div>
+
+          <!-- keyup -->
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <input
+                placeholder="keyup"
+                type="text"
+                class="form-control"
+                (keyup)="captureData($event)"
+              />
+            </div>
+          </div>
+
+
+          <!-- click -->
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <button 
+              class="btn btn-primary"
+               (click)="btnClick()" >Click</button>
+            </div>
+          </div>
+
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <input
+                placeholder="Enter Project Deails"
+                class="form-control"
+                type="text"
+                [value]="ProjectDetails"/>
+            </div>
+
+            <div class="col-md-1">
+              <button 
+              class="btn btn-success"
+              (click)="evtShowDetails()"
+              >
+                Click
+              </button>
+            </div>
+          </div>
+        </li>
+
+
+        <li class="list-group-item p-4 border-bottom border-info">
+          <h3 class="bullet-icon">
+            Handling the Event Data binding and Property Data binding
+             together
+            in same element
+          </h3>
+
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <input
+                placeholder="Location"
+                class="form-control"
+                type="text"
+                (keyup)="evtCusLocationKeyUp($event)"
+                [value]="cusPeterLocation"
+                />
+            </div>
+            <div class="col-md-6">
+              <p class="text-primary mt-auto">{{cusPeterLocation}}</p>
+            </div>
+          </div>
+
+        </li>
+
+
+        <li class="list-group-item p-4 border-bottom border-info">
+          <h6>Angular with [ngModel] and (ngModelChange)</h6>
+
+          <div class="row mt-4">
+            <div class="col-md-6">
+              <input
+                name = "cusJohnLocationName"
+                placeholder="Location"
+                class="form-control"
+                type="text"
+                (ngModelChange)="evtCusLocationModelChange($event)"
+                [ngModel]="cusJohnLocation"
+                />
+            </div>
+            <div class="col-md-6">
+              <p class="text-primary mt-auto">{{cusJohnLocation}}</p>
+            </div>
+          </div>
+
+        </li>
+
+        <!-- property + event = [()]
+             ngmodel   + ngmodelChange = [(ngModel)]
+        {{}}
+        []
+        ()
+        [()] 
+        -->
+
+        <li class="list-group-item p-4 border-bottom border-info">
+          <h3 class="bullet-icon">Two Way Data binding</h3>
+          <div class="row mt-4">
+            <div class="col-md-3">
+              <input
+                name="Guest Name"
+                placeholder="Guest Name"
+                class="form-control"
+                [(ngModel)] = "guestName"
+                />
+            </div>
+            <div class="col-md-3">
+              <input
+                name="Guest Location"
+                placeholder="Guest Location"
+                class="form-control"
+                [(ngModel)]="guestLocation"
+              />
+            </div>
+            <div class="col-md-6">
+              <p class="text-primary mt-auto">
+                Hello I am your guest . My Name is
+                <span class="fs-4">{{guestName}}</span>
+                and Iam from 
+                <span class="fs-4">{{guestLocation}}</span>
+              </p>
+            </div>
+          </div>
         </li>
       </ul>
     </div>
