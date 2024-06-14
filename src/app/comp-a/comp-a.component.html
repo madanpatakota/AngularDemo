@@ -1,1 +1,57 @@
-<p>comp-a works!</p>
+<!-- <a style="background-color: red;">link</a> -->
+
+<div class="container mt-5">
+    <div class="row">
+      <ul class="list-group list-group-flush">
+        <!--ngStyle-->
+        <li class="list-group-item p-4 border-bottom border-info">
+          <div class="row">
+            <h3 class="d-inline-flex">ngStyle Directive</h3>
+            <span> (We use for change the style based on the condition) </span>
+          </div>
+          <div class="row mt-4">
+            <div class="col-4">
+              <span>Zone Type(Propery Data binding) </span>
+            </div>
+
+            <!-- HTML element with background color by using style -->
+            <!-- <div class="col-1" style="background-color: green;">
+            </div> -->
+
+            <!-- HTML element with background color by using ngStyle -->
+            <div class="col-1" [ngStyle]="{'background-color': divColor}">
+            </div>
+          </div>
+
+
+          <!-- <div>
+            <p 
+            style="
+            background-color: red;
+            border:1px solid yellow;
+            width:10px
+            "> Hello world
+            </p>
+          </div> -->
+
+
+
+          <div class="row mt-4">
+            <div class="col-4">
+              <span>Zone Type(Propery Data binding by condition) </span>
+            </div>
+
+            <div class="col-1" 
+              [ngStyle]="
+              {
+                'background-color': zoneSafeStatus == true ? 'green' : 'red',
+                'border' : zoneBorderStatus == true ? '5px solid yellow' : '',
+                'width' : zonemaxWidth == true ? '' : '10px'
+              }">
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+</div>
+
