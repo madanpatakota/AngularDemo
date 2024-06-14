@@ -5,11 +5,12 @@ import { AppComponent } from './app.component';
 import { testComponent  } from './test/test.component';
 import { TestOneComponent } from './test-one/test-one.component';
 import { FormsModule } from '@angular/forms';
+import { CustomerSignupComponent } from './customer-signup/customer-signup.component';
 
 @NgModule(
 {
                  // .html + .ts + .css + spec
-  declarations: [AppComponent , testComponent, TestOneComponent],
+  declarations: [AppComponent , testComponent, TestOneComponent, CustomerSignupComponent],
   imports: [BrowserModule,FormsModule],
   providers: [],
   bootstrap: [AppComponent]
