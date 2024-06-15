@@ -1,30 +1,28 @@
 <!-- <a style="background-color: red;">link</a> -->
 
 <div class="container mt-5">
-    <div class="row">
-      <ul class="list-group list-group-flush">
-        <!--ngStyle-->
-        <li class="list-group-item p-4 border-bottom border-info">
-          <div class="row">
-            <h3 class="d-inline-flex">ngStyle Directive</h3>
-            <span> (We use for change the style based on the condition) </span>
+  <div class="row">
+    <ul class="list-group list-group-flush">
+      <!--ngStyle-->
+      <li class="list-group-item p-4 border-bottom border-info">
+        <div class="row">
+          <h3 class="d-inline-flex">ngStyle Directive</h3>
+          <span> (We use for change the style based on the condition) </span>
+        </div>
+        <div class="row mt-4">
+          <div class="col-4">
+            <span>Zone Type(Propery Data binding) </span>
           </div>
-          <div class="row mt-4">
-            <div class="col-4">
-              <span>Zone Type(Propery Data binding) </span>
-            </div>
 
-            <!-- HTML element with background color by using style -->
-            <!-- <div class="col-1" style="background-color: green;">
+          <!-- HTML element with background color by using style -->
+          <!-- <div class="col-1" style="background-color: green;">
             </div> -->
 
-            <!-- HTML element with background color by using ngStyle -->
-            <div class="col-1" [ngStyle]="{'background-color': divColor}">
-            </div>
-          </div>
+          <!-- HTML element with background color by using ngStyle -->
+          <div class="col-1" [ngStyle]="{ 'background-color': divColor }"></div>
+        </div>
 
-
-          <!-- <div>
+        <!-- <div>
             <p 
             style="
             background-color: red;
@@ -34,24 +32,222 @@
             </p>
           </div> -->
 
-
-
-          <div class="row mt-4">
-            <div class="col-4">
-              <span>Zone Type(Propery Data binding by condition) </span>
-            </div>
-
-            <div class="col-1" 
-              [ngStyle]="
-              {
-                'background-color': zoneSafeStatus == true ? 'green' : 'red',
-                'border' : zoneBorderStatus == true ? '5px solid yellow' : '',
-                'width' : zonemaxWidth == true ? '' : '10px'
-              }">
-            </div>
+        <div class="row mt-4">
+          <div class="col-4">
+            <span>Zone Type(Propery Data binding by condition) </span>
           </div>
-        </li>
-      </ul>
-    </div>
-</div>
 
+          <!--synatx : [ngStyle]="{__________:__________}"-->
+          <div
+            class="col-1"
+            [ngStyle]="{
+              'background-color': zoneSafeStatus == true ? 'green' : 'red',
+              border: zoneBorderStatus == true ? '5px solid yellow' : '',
+              width: zonemaxWidth == true ? '' : '10px'
+            }"
+          ></div>
+        </div>
+      </li>
+
+      <!--ngClass-->
+      <li class="list-group-item p-4 border-bottom border-info">
+        <div class="row">
+          <h3 class="d-inline-flex">ngClass Directive</h3>
+          <span> (We use for change the class based on the condition) </span>
+        </div>
+        <div class="row mt-4">
+          <div class="col-4">
+            <span>Employee Type Status(Propery Data binding)</span>
+          </div>
+          <!-- HTML related how we apply class from style to the element style -->
+          <!-- <div class="col-3 badEmployee"></div>
+          <div class="col-3 goodEmployee"></div> -->
+          <div [ngClass]="'goodEmployee'"></div>
+        </div>
+
+        <div class="row mt-4">
+          <div class="col-4">
+            <span>Employee Type Status(Propery Data binding)</span>
+          </div>
+          <div
+            [ngClass]="employeeStatus == true ? 'goodEmployee' : 'badEmployee'"
+          ></div>
+        </div>
+      </li>
+
+      <!--*ngIf , [ngStyle]-->
+      <li class="list-group-item p-4 border-bottom border-info">
+        <div class="row">
+          <h3 class="d-inline-flex">ngIf Structural Directive</h3>
+          <span> (Display Content based on the Condition) </span>
+        </div>
+        <div class="row mt-4">
+          <div class="col-12">
+            <p
+              *ngIf="employeeEligibility"
+              id="customerPassword"
+              class="text-success"
+            >
+              !@#@%^&^(312
+            </p>
+          </div>
+        </div>
+      </li>
+
+      <!--Local ref-->
+      <li class="list-group-item p-4 border-bottom border-info">
+        <div class="row">
+          <h3 class="d-inline-flex">local ref Element</h3>
+          <span> (The way you are going to give element ref in .ts file) </span>
+        </div>
+        <div class="row mt-4">
+          <div class="col-2">
+            <p class="text-success" #question>
+              {{ myquestion }}
+            </p>
+          </div>
+          <div class="col-1">
+            <button class="btn btn-primary" (click)="evtQuestion(question)">
+              Click
+            </button>
+          </div>
+
+          <div>
+            <p class="text-success">
+              {{ myAnswer }}
+            </p>
+          </div>
+        </div>
+      </li>
+
+      <!--ngTemplate-->
+      <li class="list-group-item p-4 border-bottom border-info">
+        <div class="row">
+          <h3 class="d-inline-flex">ngTemplate element</h3>
+          <span>
+            (By Default it would't execute | render | process in DOM)
+          </span>
+        </div>
+        <div class="row mt-4">
+          <div class="col-12">
+            <ng-template>
+              <p
+                *ngIf="employeeEligibility"
+                id="customerPassword"
+                class="text-success"
+              >
+                Secreat Key : !@#@%^&^(312
+              </p>
+            </ng-template>
+          </div>
+        </div>
+      </li>
+
+      <!-- ngIf localref ngtemplate -->
+      <li class="list-group-item p-4 border-bottom border-info">
+        <div class="row">
+          <h3 class="d-inline-flex">ngIf localref ngtemplate</h3>
+          <span>
+            (Show secreat key incase of permission other wise show some denied
+            message)
+          </span>
+        </div>
+        <div class="row mt-4">
+          <div class="col-12">
+            <p
+              *ngIf="employeeEligibility; else NoEligibleTemplate"
+              id="customerPassword"
+              class="text-success"
+            >
+              SecreatKey : !@#@%^&^(312
+            </p>
+
+            <ng-template #NoEligibleTemplate>
+              <p class="text-danger">SecreatKey : Permission Denied</p>
+            </ng-template>
+          </div>
+        </div>
+      </li>
+
+      <li class="list-group-item p-4 border-bottom border-info">
+        <div class="row">
+          <h3 class="d-inline-flex">ngFor Directive</h3>
+          <span> (Print the list of the values) </span>
+        </div>
+
+        <div class="row">
+          <!--  html + BS -->
+          <div class="col-6">
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">He Likes the Non Veg Food</li>
+              <li class="list-group-item">
+                He dislike in Reception the way they talk in Restaurent
+              </li>
+              <li class="list-group-item">He went with his 4 freinds</li>
+            </ul>
+          </div>
+          <div class="col-6">
+            <!--ngFor Directive
+            exp ref each item from the customerExperience
+            -->
+            <ul class="list-group list-group-flush">
+              <li
+                class="list-group-item"
+                *ngFor="let exp of customerExperience; let ind = index"
+              >
+                {{ ind }} - {{ exp }}
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-12">
+            <ul class="list-group list-group-flush">
+              <li
+                class="list-group-item text-center"
+                *ngFor="let customer of customersList; let ind = index"
+              >
+                <span>
+                  {{ ind }} : My Customer {{ customer.name }} is living in
+                  {{ customer.location }} . And his Role is {{ customer.Job }}
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+
+      <!--ngswitch and its case(ngswitchcase)-->
+      <li class="list-group-item p-4 border-bottom border-info">
+        <div class="row">
+          <h3 class="d-inline-flex">ngswitch and ngswitchcase Directive</h3>
+          <span> Based on flag we are going to on the case </span>
+        </div>
+        <div class="row">
+          <div class="col-12">
+            <ul class="list-group list-group-flush"
+                 [ngSwitch] = "customerID">
+              <li class="list-group-item" *ngSwitchCase="0">
+                0 : My Customer John Smith is living in London . And his Role is
+                Sales Rep
+              </li>
+              <li class="list-group-item" *ngSwitchCase="1">
+                1 : My Customer Robert Frost is living in New yark . And his
+                Role is Hotel Chef
+              </li>
+              <li class="list-group-item" *ngSwitchCase="2">
+               <span>2 : My Customer Peter moore is living in Colombo . And his Role
+                is Car Driver
+              </span> 
+              </li>
+              <li class="list-group-item text-danger" *ngSwitchDefault="">
+                Unable to find any Customer
+              </li>
+            </ul>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
